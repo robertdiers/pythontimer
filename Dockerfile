@@ -8,6 +8,7 @@ RUN pip3 install configparser pymodbus
 
 # copy files
 COPY kostal_idm.py /app/kostal_idm.py
+COPY kostal_idm.ini /app/kostal_idm.ini
 COPY batterytimer.py /app/batterytimer.py
 COPY batterytimer.ini /app/batterytimer.ini
 COPY container_cron /etc/cron.d/container_cron

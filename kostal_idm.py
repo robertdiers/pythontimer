@@ -1,10 +1,15 @@
 #!/usr/bin/env python
 
 import pymodbus
+import configparser
 from pymodbus.client.sync import ModbusTcpClient
 from pymodbus.constants import Endian
 from pymodbus.payload import BinaryPayloadDecoder
 from pymodbus.payload import BinaryPayloadBuilder
+
+#read config
+config = configparser.ConfigParser()
+config.read('kostal_idm.ini')
 
 #-----------------------------------------
 # Routine to read a float    
@@ -24,14 +29,12 @@ def WriteFloat(client,myadr_dec,feed_in,unitid):
 if __name__ == "__main__":  
     print ("##### START #####")
     try:
-        #change the IP address and port:
-        inverter_ip="192.168.1.5"
-        inverter_port="1502"
-        idm_ip="192.168.1.3"
-        idm_port="502"  
-        feed_in_limit=1000  
-        #feed_in_limit=1     
-        #no more changes required
+
+        inverter_ip = config['KostalSection']['inverter_ip']
+        inverter_port = config['KostalSection']['inverter_port']
+        idm_ip = config['IdmSection']['idm_ip']
+        idm_port = config['IdmSection']['idm_port']  
+        feed_in_limit = int(config['FeedinSection']['feed_in_limit']) 
         
         print ("##### KOSTAL IP: ", inverter_ip)
         inverterclient = ModbusTcpClient(inverter_ip,port=inverter_port)            
