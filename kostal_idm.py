@@ -92,7 +92,7 @@ if __name__ == "__main__":
             
         #read from iDM
         idmvalue = ReadFloat(idmclient,74,1)
-        print (datetime.now().strftime("%d/%m/%Y %H:%M:%S") + "# iDM: ", idmvalue)
+        print (datetime.now().strftime("%d/%m/%Y %H:%M:%S") + " iDM: ", idmvalue)
             
         idmclient.close()   
         
