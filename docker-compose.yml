@@ -5,7 +5,7 @@ services:
         container_name: code-server-python
         hostname: code-server-python
         networks:
-            python-click-net:
+            python-cron-net:
         volumes:
             - $HOME/.config:/home/coder/.config
             - $PWD:/home/coder/project
@@ -22,5 +22,5 @@ services:
             - 50000:50000
 
 networks:
-    python-click-net:
+    python-cron-net:
 
