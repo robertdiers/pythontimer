@@ -4,6 +4,7 @@ USER root
 
 RUN apt update
 RUN apt -y upgrade
+RUN apt -y install cron
 RUN pip3 install configparser pymodbus
 
 # copy files
