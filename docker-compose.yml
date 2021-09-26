@@ -1,0 +1,26 @@
+version: '3'
+services:
+    vsc-server:
+        build: vsc
+        container_name: code-server-python
+        hostname: code-server-python
+        networks:
+            python-click-net:
+        volumes:
+            - $HOME/.config:/home/coder/.config
+            - $PWD:/home/coder/project
+        environment:
+            - DOCKER_USER=$USER
+        user: "${EXAMPLE_UID}:${EXAMPLE_GID}"
+        expose:
+            - 8080
+            #add port of your application
+            - 50000
+        ports:
+            - 8080:8080
+            #add port of your application
+            - 50000:50000
+
+networks:
+    python-click-net:
+
