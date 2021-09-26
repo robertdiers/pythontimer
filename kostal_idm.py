@@ -10,7 +10,7 @@ from pymodbus.payload import BinaryPayloadBuilder
 
 #read config
 config = configparser.ConfigParser()
-config.read('kostal_idm.ini')
+config.read('/app/kostal_idm.ini')
 
 #-----------------------------------------
 # Routine to read a float    

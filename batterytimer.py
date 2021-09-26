@@ -6,7 +6,7 @@ import configparser
 
 #read config
 config = configparser.ConfigParser()
-config.read('batterytimer.ini')
+config.read('/app/batterytimer.ini')
 
 def tactivate():
     statuslink = urlopen(config['TimerSection']['tasmota.status'])
