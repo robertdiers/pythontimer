@@ -24,7 +24,7 @@ def tdeactivate():
         retval = switchlink.read().decode('utf-8')
         print(datetime.now().strftime("%d/%m/%Y %H:%M:%S") + ' ' + retval)
 
-print(datetime.now().strftime("%d/%m/%Y %H:%M:%S") + ' ' + ' timer1 check: ' + config['TimerSection']['tasmota.status'])
+print(datetime.now().strftime("%d/%m/%Y %H:%M:%S") + ' timer1 check: ' + config['TimerSection']['tasmota.status'])
 currentMonth = datetime.now().month
 currentHour = datetime.now().hour
 activation = config['TimerSection']['timer.'+str(currentMonth)]
@@ -32,7 +32,7 @@ fromTo = activation.split("-")
 #activation during night
 if currentHour >= int(fromTo[0]) or currentHour <= int(fromTo[1]):
     tactivate()
-    print(datetime.now().strftime("%d/%m/%Y %H:%M:%S") + ' ' + 'timer1 activated')
+    print(datetime.now().strftime("%d/%m/%Y %H:%M:%S") + ' timer1 activated')
 else:
     tdeactivate()
-    print(datetime.now().strftime("%d/%m/%Y %H:%M:%S") + ' ' + 'timer1 deactivated')
+    print(datetime.now().strftime("%d/%m/%Y %H:%M:%S") + ' timer1 deactivated')
